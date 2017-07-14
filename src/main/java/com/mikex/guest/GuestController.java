@@ -1,8 +1,17 @@
 package com.mikex.guest;
  
+import com.mikex.employee.Employee;
+import com.mikex.employee.LoadDataService;
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,13 +31,17 @@ public class GuestController {
             guestDao.persist(new Guest(name));
  
         // Prepare the result view (guest.jsp):
-        return new ModelAndView("guest", "guestDao", guestDao);
+        return new ModelAndView("/DataTableJsp/dataTable01", "guestDao", guestDao);
+               
     }
     
     @RequestMapping(value="/one")
-    public String test01() {
+    public String test01(Locale locale, Model model) throws JsonGenerationException, JsonMappingException, IOException{
                
-        return "test01";
+        ObjectMapper mapper = new ObjectMapper();
+        List<Employee> employeeList = LoadDataService.getEmployeeList();
+        model.addAttribute("employeeList", mapper.writeValueAsString(employeeList));
+	return "/DataTableJsp/dataTable02";
     }
     
     
