@@ -5,49 +5,63 @@
  */
 package com.mikex.employee;
 
-public class Employee {
-	private String Name;
-	private String Desgination;
-	private String Salary;
-	private String Country;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Employee implements Serializable {
+    private static final long serialVersionUID = 1L;
+       
+    @Id @GeneratedValue
+    private Long id;
+
+    private String Name;
+    private String Desgination;
+    private String Salary;
+    private String Country;
+
+    public Employee() {
+    }
 	
-	public Employee(String name, String desgination, String salary, String country) {
-		this.Name = name;
-		this.Desgination = desgination;
-		this.Salary = salary;
-		this.Country = country;
-	}
+    public Employee(String name, String desgination, String salary, String country) {
+            this.Name = name;
+            this.Desgination = desgination;
+            this.Salary = salary;
+            this.Country = country;
+    }
 
-	public String getName() {
-		return Name;
-	}
+    public String getName() {
+            return Name;
+    }
 
-	public void setName(String name) {
-		this.Name = name;
-	}
+    public void setName(String name) {
+            this.Name = name;
+    }
 
-	public String getDesgination() {
-		return Desgination;
-	}
+    public String getDesgination() {
+            return Desgination;
+    }
 
-	public void setDesgination(String desgination) {
-		this.Desgination = desgination;
-	}
+    public void setDesgination(String desgination) {
+            this.Desgination = desgination;
+    }
 
-	public String getSalary() {
-		return Salary;
-	}
+    public String getSalary() {
+            return Salary;
+    }
 
-	public void setSalary(String salary) {
-		this.Salary = salary;
-	}
+    public void setSalary(String salary) {
+            this.Salary = salary;
+    }
 
-	public String getCountry() {
-		return Country;
-	}
+    public String getCountry() {
+            return Country;
+    }
 
-	public void setCountry(String country) {
-		this.Country = country;
-	}
+    public void setCountry(String country) {
+            this.Country = country;
+    }
 	
 }

@@ -90,7 +90,7 @@ public class LoadDataService {
 		employeeList.add(employee64);
 		employeeList.add(employee63);
 		employeeList.add(employee62);
-		employeeList.add(employee62);
+		
 		employeeList.add(employee61);
 		employeeList.add(employee60);
 		employeeList.add(employee59);

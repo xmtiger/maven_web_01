@@ -11,15 +11,15 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
  
 //@Component
-@Repository
+@Repository(value="guestDao")
 public class GuestDao {
     // Injected database connection. The persistence unit name must be same as the name in persistence.xml 
-    @PersistenceContext(name="GuestbookPU") private EntityManager em;
+    @PersistenceContext(name="derby_mem_JPA") private EntityManager em;
  
     // Stores a new guest:
     @Transactional(propagation=Propagation.REQUIRED, isolation=Isolation.DEFAULT)
     public void persist(Guest guest) {
-        //em.getTransaction().begin();
+        //em.getTransaction().begin(); with annotation @Transactional, those transaction fucntions are not required.
         em.persist(guest);
         //em.getTransaction().commit();
     }

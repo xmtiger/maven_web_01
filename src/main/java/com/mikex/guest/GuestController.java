@@ -10,6 +10,7 @@ import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class GuestController {
  
     @Autowired
+    @Qualifier("guestDao")
     private GuestDao guestDao;
  
     @RequestMapping(value="")
@@ -31,7 +33,7 @@ public class GuestController {
             guestDao.persist(new Guest(name));
  
         // Prepare the result view (guest.jsp):
-        return new ModelAndView("/DataTableJsp/dataTable01", "guestDao", guestDao);
+        return new ModelAndView("/guest", "guestDao", guestDao);
                
     }
     

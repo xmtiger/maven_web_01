@@ -38,6 +38,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @author xmtig
  */
 @Controller
+@RequestMapping(value="form")
 public class UserController {
     
     private final Logger logger = LoggerFactory.getLogger(UserController.class);

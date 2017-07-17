@@ -26,7 +26,8 @@
        <property name="loadTimeWeaver">
           <bean class="org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver"/>
         </property>
-        <property name="persistenceUnitName" value="objectdb_JPA"></property>
+        <property name="persistenceUnitName" value="derby_mem_JPA"></property>
+        
     </bean>
 
     <!-- Add Transaction support -->

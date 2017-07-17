@@ -12,7 +12,7 @@
     </head>
  
     <body>
-        <form method="POST" action="guest.html">
+        <form method="POST" action="">
             Name: <input type="text" name="name" />
             <input type="submit" value="Add" />
         </form>
