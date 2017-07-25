@@ -60,6 +60,6 @@ public class AbstractHRServiceTests {
         
         Collection<Employee> employees = this.hrService.findEmployeeByLastName("Schultz");
         int found = employees.size();
-        assertThat(employees.size()).isEqualTo(found + 1);
+        assertThat(employees.size()).isEqualTo(1);
     }
 }
